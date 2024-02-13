@@ -519,7 +519,7 @@ function App() {
                         }
                         placeholder="Votre enchère"
                         min={parseFloat(participation.bidAmount)}
-                        step="0.01"
+                        step="0.0001"
                       />
                       <button
                         onClick={() => handleBidSubmit(participation.tokenId)}
@@ -605,7 +605,7 @@ function App() {
                   }
                   placeholder="Votre enchère"
                   min={parseFloat(auction.price)}
-                  step="0.01"
+                  step="0.0001"
                 />
                 <button onClick={() => handleBidSubmit(auction.id)}>
                   Enchérir
