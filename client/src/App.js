@@ -431,12 +431,12 @@ function App() {
         <button onClick={() => setActiveSection("auctions")}>
           Enchères en cours
         </button>
-        <button onClick={() => setActiveSection("myAuctions")}>
-          Mes enchères
-        </button>
-        <button onClick={() => setActiveSection("myNFTs")}>Mes NFT</button>
         <button onClick={() => setActiveSection("myBids")}>
           Mes participations
+        </button>
+        <button onClick={() => setActiveSection("myNFTs")}>Mes NFT</button>
+        <button onClick={() => setActiveSection("myAuctions")}>
+          Mes enchères
         </button>
       </nav>
       {error && <p>{error}</p>}
