@@ -395,8 +395,10 @@ function App() {
     setDuration(event.target.value);
   };
   const handleBidSubmit = async (listingId) => {
+    console.log("aaaa");
     const bidAmount = bidAmounts[listingId];
     if (bidAmount) {
+      console.log("bbbb");
       await bid(listingId, bidAmount);
       setBidAmounts((prevAmounts) => ({
         ...prevAmounts,
@@ -518,7 +520,7 @@ function App() {
                         value={bidAmounts[participation.tokenId] || ""}
                         onChange={(e) =>
                           handleBidAmountChange(
-                            participation.tokenId,
+                            participation.listingId,
                             e.target.value
                           )
                         }
@@ -527,7 +529,7 @@ function App() {
                         step="0.0001"
                       />
                       <button
-                        onClick={() => handleBidSubmit(participation.tokenId)}
+                        onClick={() => handleBidSubmit(participation.listingId)}
                       >
                         Enchérir
                       </button>
@@ -604,9 +606,9 @@ function App() {
                 </p>
                 <input
                   type="number"
-                  value={bidAmounts[auction.tokenId] || ""}
+                  value={bidAmounts[auction.id] || ""}
                   onChange={(e) =>
-                    handleBidAmountChange(auction.tokenId, e.target.value)
+                    handleBidAmountChange(auction.id, e.target.value)
                   }
                   placeholder="Votre enchère"
                   min={parseFloat(auction.price)}
