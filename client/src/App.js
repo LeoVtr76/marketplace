@@ -36,6 +36,10 @@ function App() {
             method: "eth_requestAccounts",
           });
           const provider = new ethers.BrowserProvider(window.ethereum);
+          if (Number((await provider.getNetwork()).chainId) !== 80001) {
+            setError("Please use Mumbai polygon network");
+            return;
+          }
           const signer = await provider.getSigner();
           const address = await signer.getAddress();
           setCurrentAccount(address);
@@ -46,6 +50,7 @@ function App() {
             signer
           );
           setState({ contract });
+          console.log("ethereum data :", ethereum);
         }
       } catch (error) {
         console.log(error);
